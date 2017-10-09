@@ -1,0 +1,10 @@
+#ifndef CHILLINCLIENT_MODULE_H
+#define CHILLINCLIENT_MODULE_H
+
+#include "chillinclient_global.h"
+#include "gameclient.h"
+#include "base_ai.h"
+#include "realtime_ai.h"
+#include "turnbased_ai.h"
+
+#endif // CHILLINCLIENT_MODULE_H
