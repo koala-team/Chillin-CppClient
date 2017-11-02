@@ -1,5 +1,7 @@
 #include "gameclient.h"
 
+#include <QCoreApplication>
+
 #include "config.h"
 
 
@@ -7,7 +9,10 @@ namespace koala { namespace chillin { namespace client {
 
 GameClient::GameClient(const std::string &cfgPath)
 {
-    Config::instance()->initialize(QString::fromStdString(cfgPath));
+    QString path = QString::fromStdString(cfgPath);
+    if (QCoreApplication::arguments().size() > 1)
+        path = QCoreApplication::arguments()[1];
+    Config::instance()->initialize(path);
     core = new Core();
 }
 

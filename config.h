@@ -17,6 +17,9 @@ private:
     Config();
     ~Config();
 
+    void parseFile(const QString &cfgPath);
+    void parseArgs();
+
 private:
     static Config *ins;
     QJsonObject config;
