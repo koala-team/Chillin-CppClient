@@ -10,7 +10,7 @@
 
 namespace koala { namespace chillin { namespace client {
 
-class ParsedMessage;
+struct ParsedMessage;
 
 class Parser
 {
