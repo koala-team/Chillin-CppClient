@@ -132,6 +132,7 @@ void Core::handleSnapshot(const ParsedMessage *msg)
     if (!gameRunning)
     {
         gameRunning = true;
+        ai->initialize();
         if (!create_new_thread || ai->allowedToDecide())
         {
             std::thread t(&AbstractAI::decide, ai);

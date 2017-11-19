@@ -32,6 +32,7 @@ public:
 
     virtual void update(const ks::messages::BaseSnapshot *snapshot) = 0;
     virtual bool allowedToDecide() const = 0;
+    virtual void initialize() {}
     virtual void decide() = 0;
 
 protected:
