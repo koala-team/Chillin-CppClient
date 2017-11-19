@@ -22,7 +22,6 @@ public:
 
     virtual void update(const ks::messages::BaseSnapshot *snapshot);
     virtual bool allowedToDecide() const;
-    virtual void decide() = 0;
 
 protected:
     virtual void sendCommandInternal(const ks::KSObject *command, ks::messages::BaseCommand *msg = 0);

@@ -139,7 +139,7 @@ void Core::handleSnapshot(const ParsedMessage *msg)
             t.detach();
         }
     }
-    if (create_new_thread && ai->allowedToDecide())
+    else if (create_new_thread && ai->allowedToDecide())
     {
         std::thread t(&AbstractAI::decide, ai);
         t.detach();
