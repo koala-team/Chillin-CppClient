@@ -93,8 +93,7 @@ bool Core::joinGame()
 
     if (clientJoinedMessage->joined())
     {
-        ai->setMySide(clientJoinedMessage->side_name());
-        ai->setSides(clientJoinedMessage->sides());
+        ai->setSides(clientJoinedMessage->sides(), clientJoinedMessage->side_name());
         Logger::instance()->succeed("Joined the game successfully");
         return true;
     }

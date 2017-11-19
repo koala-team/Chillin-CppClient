@@ -2,6 +2,7 @@
 #define ABSTRACT_AI_H
 
 #include <map>
+#include <vector>
 #include <string>
 
 #include "helpers/messages.h"
@@ -18,14 +19,15 @@ public:
         this->commandSendQueue = q;
     }
 
-    void setSides(const std::map<std::string, std::vector<std::string>> sides)
+    void setSides(const std::map<std::string, std::vector<std::string>> sides, const std::string mySide)
     {
         this->sides = sides;
-    }
-
-    void setMySide(const std::string mySide)
-    {
         this->mySide = mySide;
+        otherSides.clear();
+        for (auto side : sides)
+            if (side.first != mySide)
+                this->otherSides.push_back(side.first);
+        this->otherSide = (this->otherSides.size() == 1) ? this->otherSides[0] : "";
     }
 
     virtual void update(const ks::messages::BaseSnapshot *snapshot) = 0;
@@ -36,6 +38,8 @@ protected:
     moodycamel::BlockingConcurrentQueue<ks::messages::BaseCommand*> *commandSendQueue;
     std::map<std::string, std::vector<std::string>> sides;
     std::string mySide;
+    std::string otherSide;
+    std::vector<std::string> otherSides;
 };
 
 }}}
