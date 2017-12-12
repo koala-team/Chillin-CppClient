@@ -9,7 +9,7 @@ QT += network
 QT -= gui
 
 TARGET = ChillinClient
-VERSION = 1.2.0
+VERSION = 1.2.1
 DEFINES += APP_VERSION=$$VERSION
 
 TEMPLATE = lib
