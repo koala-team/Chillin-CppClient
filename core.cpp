@@ -95,6 +95,9 @@ bool Core::joinGame()
     {
         ai->setSides(clientJoinedMessage->sides(), clientJoinedMessage->side_name());
         Logger::instance()->succeed("Joined the game successfully");
+        Logger::instance()->succeed(QString("Side: %1").arg(
+            QString::fromStdString(clientJoinedMessage->side_name())
+        ));
         return true;
     }
 
